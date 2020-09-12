@@ -1,0 +1,19 @@
+{
+  "name": "pkmn-thrive",
+  "version": "1.0.0",
+  "description": "Test technique Thrive avec API Pokémon",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tombiato/pkmn-thrive.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tombiato/pkmn-thrive/issues"
+  },
+  "homepage": "https://github.com/tombiato/pkmn-thrive#readme"
+}
