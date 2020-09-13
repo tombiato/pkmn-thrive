@@ -1,5 +1,5 @@
 // Recuperer tous les pokemon
-async function fetchPokemonList () {
+/*async function fetchPokemonList () {
   await fetch("https://pokeapi.co/api/v2/pokemon-species?limit=20")
     .then((response) => {
       return response.json();
@@ -33,3 +33,17 @@ const displayPokedex = (pokemon) => {
 };
 
 fetchPokemonList();
+*/
+
+fetch('http://localhost:3000/api/pokemons?offset=0&limit=20')
+  .then((response) => {
+    console.log(response);
+    for (let pokemon of response.results) {
+      fetch(pokemon.url)
+          .then((response) => {
+            console.log(response.id);
+  //          let container = document.getElementsByClassName("container")[0];
+//            let pokemonField = document.createElement("div");
+          });
+    };
+  });
