@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login page</title>
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+    <nav>
+        <a href="index.html"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1200px-International_Pok%C3%A9mon_logo.svg.png" alt=""></a>
+        <a href="login.html">Connection</a>
+    </nav>
+</header>
+<main>
+    <div class="login-form">
+        <form action="http://localhost:3000/api/users/login" method="post">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name">
+
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password">
+
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <a href="register.html">Register page</a>
+</main>
+</body>
+</html>

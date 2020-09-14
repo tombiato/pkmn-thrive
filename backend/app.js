@@ -1,12 +1,46 @@
 const express = require('express');
+const mongoose = require('mongoose');
+const session = require('express-session');
+const flash = require('connect-flash');
 const port = 3000;
+const passport = require('passport');
 
 const app = express();
-// const router = express.Router();
 
-app.set('view engine', 'ejs');
+// Passport config
+require('./config/passport')(passport);
 
-app.use(express.static(__dirname + '/public'));
+// BD config
+const db = require('./config/keys').MongoURI;
+
+mongoose.connect(db, {useNewUrlParser: true})
+    .then(() => console.log('MongoDB connected'))
+    .catch(err => console.log(err));
+
+// Bodyparser
+app.use(express.urlencoded({ extended: false }));
+
+// Express session
+app.use(session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+}))
+
+// Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Connect flash
+app.use(flash())
+
+// Global vars
+app.use((req, res, next) => {
+    res.locals.success_msg = req.flash('success_msg');
+    res.locals.error_msg = req.flash('error_msg');
+    res.locals.error = req.flash('error');
+    next();
+})
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');

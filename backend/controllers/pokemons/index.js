@@ -2,12 +2,13 @@ const https = require('https');
 
 module.exports = {
     getAll: async (req, res) => {
-      let {
-        query: {
-            offset,
-            limit,
-        },
-      } = req;
+        let offset, limit;
+        ({
+            query: {
+                offset,
+                limit,
+            },
+        } = req);
 
       offset = offset ? offset : 0;
       limit = limit ? limit : 20;

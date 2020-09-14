@@ -35,7 +35,12 @@ const displayPokedex = (pokemon) => {
 fetchPokemonList();
 */
 
-let offset = 0;
+const queryString = window.location.search;
+console.log(queryString);
+
+const urlParams = new URLSearchParams(queryString);
+
+const offset = urlParams.get('offset')
 
 fetch('http://localhost:3000/api/pokemons?offset=' + offset)
   .then(async (response) => {
