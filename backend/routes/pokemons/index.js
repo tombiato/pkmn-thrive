@@ -5,6 +5,6 @@ const {
 } = require('../../controllers');
 
 router.get('/', pokemonsController.getAll);
-router.get('/spec', pokemonsController.getByUrl);
+router.get('/spec/:id', pokemonsController.getByUrl);
 
 module.exports = router;

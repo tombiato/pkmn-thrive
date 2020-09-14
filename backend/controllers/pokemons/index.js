@@ -22,8 +22,7 @@ module.exports = {
           });
 
           resp.on('end', () => {
-              console.log(JSON.parse(data));
-              res.status(200).json(JSON.parse(data));
+              res.status(200).json(JSON.parse(data).results);
           });
       }).on("error", (err) => {
           console.log("Error : " + err.message);
@@ -32,19 +31,18 @@ module.exports = {
     getByUrl: async (req, res) => {
         let {
             query: {
-                url
+                id
             },
         } = req;
-        https.get(url, (resp) => {
+        https.get('https://pokeapi.co/api/v2/pokemon-species/' + id, (resp) => {
             let data = '';
             resp.on('data', (chunk) => {
                 data += chunk;
             });
             resp.on('end', () => {
-                console.log(JSON.parse(data));
-                return res.status(200).json(JSON.parse(data));
+                console.log('OK');
+                res.status(200).json(JSON.parse(data));
             });
         });
-        return res.status(200);
     },
 };
