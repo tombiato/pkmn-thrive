@@ -1,2 +1,2 @@
-# pkmn-thrive
+# pkmn-api
 Pokedex - PokéAPI
